@@ -5,7 +5,7 @@ on:
 
 jobs:
   run-jpf:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
     - name: Checkout repository
@@ -19,6 +19,9 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
+    - name: pnpm dependency
+      run: brew install pnpm
+    
     - name: Build project with JDK 17
       run: ./gradlew clean build -x test
 
