@@ -49,7 +49,7 @@ jobs:
 
     - name: Build project with JDK 17
       if: ${{ runner.os == 'Windows' }}
-      run: ./gradlew.bat clean build -x test --continue
+      run: ./gradlew.bat clean build --exclude-task ui:lint -x test --continue 
       
     - name: Set up JDK 11 for JPF
       uses: actions/setup-java@v3
